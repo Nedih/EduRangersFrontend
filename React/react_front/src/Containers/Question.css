@@ -1,0 +1,10 @@
+@media all and (min-width: 480px) {
+    .Question {
+      padding: 20px 0;
+    }
+  
+    .Question form {
+      margin: 0 auto;
+      max-width: 620px;
+    }
+  }

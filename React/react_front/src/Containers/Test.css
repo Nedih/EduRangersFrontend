@@ -1,0 +1,10 @@
+@media all and (min-width: 480px) {
+    .Test {
+      padding: 20px 0;
+    }
+  
+    .Test form {
+      margin: 0 auto;
+      max-width: 620px;
+    }
+  }

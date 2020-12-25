@@ -1,0 +1,120 @@
+@media all and (min-width: 480px) {
+    .Course {
+      padding: 20px 0;
+      margin-top: 30px;
+      margin-left: 15%;
+      margin-right: 15%;
+    }
+   
+  } 
+  .mybtn{
+      font-size: 20pt;
+      color:  #707bac;
+      display: flex;
+  }
+
+  .mybtn:hover{
+      color:  #1c2031;
+  }
+  .nav-link{
+      margin-top: 25px;
+  }
+  
+  .books{
+    background-image: url("https://img.jakpost.net/c/2019/03/02/2019_03_02_66706_1551461528._large.jpg");
+    background-size: contain;
+    width: 600px;
+    height: 360px;
+  }
+
+  .mybutton{
+  opacity: 0.7;
+  background-color: #ccceda;
+  color: white;
+  font-size: 16px;
+  margin: 10px 10px;
+  padding: 0px 0px;
+  width: 80px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  }
+
+  .mybutton2{
+    background-color: #f7f9ff;
+    color: white;
+    font-size: 16px;
+    margin: 10px 10px;
+    padding: 0px 0px;
+    width: 80px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: auto;
+    }
+
+  .mybutton img{
+    width: 30px;
+  }
+
+  .mybutton2 img{
+    width: 30px;
+  }
+
+  button.btn.btn-primary{
+    background-color: transparent;
+    border: 0;
+    color: black;
+    padding: 5px 5px;
+  }
+
+  .mybutton button.btn.btn-primary{
+    background-color: transparent;
+    border: 0;
+    padding: 5px 5px;
+  }
+  .mybutton button.btn.btn-primary:hover{
+    background-color:  #7c8aeb;
+  }
+  /*.img{
+    display: flex;
+  }*/
+
+  .coursecontainer{
+    display: flex;
+    margin-bottom: 100px;
+  }
+
+  .info{
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 60px;
+  }
+
+  .info p{
+    font-size: 20pt;
+    color:  #1c2031;
+  }
+
+  .mycontainer{
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    vertical-align: middle;
+    margin-bottom: 60px;
+    padding-bottom: 0px;
+
+  }
+
+  .mycontainer Button{
+    margin-left:  auto;
+  }
+
+  .mycontainer p{
+    font-size: 20pt;
+    padding-top: 5px;
+    color:  #707bac;
+    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }

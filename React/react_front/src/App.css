@@ -1,0 +1,73 @@
+.Body{
+    background-color: #f7f9ff;
+    min-height: 1000px;
+    padding-top: 25px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.mybtn{
+    font-size: 25pt;
+    color:  #707bac;
+    display: flex;
+    margin-top: 70;
+    margin-left: 40px;
+}
+
+.nav-link{
+    margin-top: 180px;
+    padding-left: 140px;
+    padding-right: 140px;
+}
+
+.mybtn:hover{
+    color:  #1c2031;
+}
+
+.navik{
+    padding-left: 65px;
+    margin-right: 265px;
+    padding-top: 75px;
+}
+
+.justify-content-end{
+    margin-right: 45px;
+}
+
+.navbar-expand-md{
+    padding-left: 65px;
+    padding-right: 65px;
+    padding-top: 75px;
+}
+
+.mb-3{
+    background-color: #f7f9ff;
+    border-color: #707bac;
+    border-bottom-color: #707bac;
+    border-bottom: solid;
+    border-bottom-color: #707bac;
+    border-bottom-width: 4px;
+    margin-left: 65px;
+    margin-right: 65px;
+    padding-left: 65px;
+    padding-right: 65px;
+    padding-top: 75px;
+}
+
+.MuiDivider{
+    height: 5px;
+    background-color: #707bac;
+}
+
+.border-bottom{
+    border-color: #707bac;
+    color:  #707bac;
+    border-color: #707bac;
+    border-bottom-color: #707bac;
+    border-bottom: #707bac;
+}
+
+.logotype{
+    font-size: 40pt;
+    color:  #707bac;
+    margin-left: 55px;
+}
