@@ -25,6 +25,7 @@ export default function AddQuestion(props){
         .then(res => {
             console.log("RESPONSE ", res);
             console.log(res.data);
+            history.push(`/test/${props.match.params.id}/${props.match.params.email}`);
         })
     }
 

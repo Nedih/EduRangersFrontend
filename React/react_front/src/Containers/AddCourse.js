@@ -53,6 +53,7 @@ export default function AddCourse(props){
         .then(res => {
             console.log("RESPONSE ", res);
             console.log(res.data);
+            history.push(`/courses/${props.match.params.email}`);
         })
     }
 

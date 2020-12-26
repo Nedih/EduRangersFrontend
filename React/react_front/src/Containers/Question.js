@@ -169,7 +169,7 @@ import React, {useState, useEffect}  from 'react';
 
         <h1>{question.QuestionText} - Answers</h1><div className="mycontainer">
       <p>Prof.</p>
-          <Button onClick={() => history.push(`/addanswer/${question.Id}`)}><div className="mybtn">Add an answer</div></Button></div>
+          <Button onClick={() => history.push(`/addanswer/${question.Id}/${props.match.params.email}`)}><div className="mybtn">Add an answer</div></Button></div>
         <br />
         <br />
         <h1>Answers:</h1>

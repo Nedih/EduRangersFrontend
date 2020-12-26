@@ -157,7 +157,7 @@ export default function Course(props){
     </Form>
         <h1>{course.CourseName} - Tests</h1><div className="mycontainer">
       <p>Prof. {user.Name}</p>
-          <Button onClick={() => history.push(`/addtest/${course.Id}`)}><div className="mybtn">Add a test</div></Button></div>
+          <Button onClick={() => history.push(`/addtest/${course.Id}/${props.match.params.email}`)}><div className="mybtn">Add a test</div></Button></div>
         <h1>Tests:</h1>
         <br />
         <br />

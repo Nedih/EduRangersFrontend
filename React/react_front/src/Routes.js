@@ -36,10 +36,10 @@ export default function Routes(props) {
       <Route exact path="/course/:id/:email" component={Сourse} />
       <Route exact path="/addcourse/:email" component={AddСourse} />
       <Route exact path="/test/:id/:email" component={Test} />
-      <Route exact path="/addtest/:id" component={AddTest} />
-      <Route exact path="/question/:id" component={Question} />
-      <Route exact path="/addquestion/:id" component={AddQuestion} />
-      <Route exact path="/addanswer/:id" component={AddAnswer} />
+      <Route exact path="/addtest/:id/:email" component={AddTest} />
+      <Route exact path="/question/:id/:email" component={Question} />
+      <Route exact path="/addquestion/:id/:email" component={AddQuestion} />
+      <Route exact path="/addanswer/:id/:email" component={AddAnswer} />
       <Route exact path="/profile/:email"component={Profile} />
       <Route exact path="/stats/:email"component={Stats} />
     </Switch>

@@ -88,7 +88,7 @@ export default function Test(props){
         const Quest = questions.map((item => <div className="info">
           <div style = {{display: "flex"}}>
           <h1>{item.QuestionText}</h1>
-        <div className="mybutton2" ><Button  onClick={() => history.push(`/question/${item.Id}`)}><img src={edit}/></Button><Button  onClick={() => 
+        <div className="mybutton2" ><Button  onClick={() => history.push(`/question/${item.Id}/${props.match.params.email}`)}><img src={edit}/></Button><Button  onClick={() => 
           {axios.delete(`https://edurangers.azurewebsites.net/api/Question/?id=${item.Id}`)
           .then(res => {
             console.log(res);
@@ -124,7 +124,7 @@ export default function Test(props){
     </Form>
     <h1>{test.TestName} - Questions</h1><div className="mycontainer">
       <p>Prof. {user.Name}</p>
-          <Button onClick={() => history.push(`/addquestion/${test.Id}`)}><div className="mybtn">Add a question</div></Button></div>
+          <Button onClick={() => history.push(`/addquestion/${test.Id}/${props.match.params.email}`)}><div className="mybtn">Add a question</div></Button></div>
         <br />
         <br />
         <h1>Questions:</h1>

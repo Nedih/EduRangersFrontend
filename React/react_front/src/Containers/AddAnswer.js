@@ -35,6 +35,7 @@ export default function AddAnswer(props){
         .then(res => {
             console.log("RESPONSE ", res);
             console.log(res.data);
+            history.push(`/question/${props.match.params.id}/${props.match.params.email}`);
         })
     }
 

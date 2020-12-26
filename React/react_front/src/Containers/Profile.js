@@ -48,6 +48,7 @@ export default function Profile(props){
           .then(res => {
             console.log("RESPONSE ", res);
             console.log(res.data);
+            history.push(`/profile/${props.match.params.email}`);
             if(res.data.Succedeed){
               alert("You`ve been succesfully logged in");
             }  
