@@ -64,11 +64,13 @@ export default function Courses(props){
           {courses.map((item => <div className="coursecontainer" key = {item.Id}>
           <div className="books">
           <div className="mybutton"><Button  onClick={() => history.push(`/course/${item.Id}/${props.match.params.email}`)}><img src={edit}/></Button><Button  onClick={() => 
-          {axios.delete(`https://edurangers.azurewebsites.net/api/Course/?id=${item.Id}`)
+          {
+            console.log(item.Id)
+            axios.delete(`https://edurangers.azurewebsites.net/api/Course/?id=${item.Id}`)
       .then(res => {
         console.log(res);
         console.log(res.data);
-        history.push(`/courses/${props.match.params.email}`);
+        //history.push(`/courses/${props.match.params.email}`);
       })}}>
         <img src={del}/></Button></div></div>
           <div className="info"><h1>{item.CourseName}</h1>

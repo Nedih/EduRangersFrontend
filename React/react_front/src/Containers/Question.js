@@ -100,37 +100,39 @@ import React, {useState, useEffect}  from 'react';
             return(<p>Error</p>)
         }
         
-        
+        function Flex(values)
+        {console.log(values)
+        const AnSwer = {
+            AnswerText: values.AnswerText,
+            IsCorrect: values.IsCorrect
+        }
+      //await new Promise(resolve => setTimeout(resolve, 500));
+      console.log("Dd", values.Id);
+      console.log("FF", AnSwer);
+      axios({
+        method: 'put',
+        url: `https://edurangers.azurewebsites.net/api/Answer/?id=${values.Id}`,
+        data: AnSwer,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        headers: {'Content-Type': 'application/json'}
+    })
+        .then(res => {
+        console.log("RESPONSE CHANGE", res);
+        console.log(res.data);
+        if(res.data.Succedeed){
+            alert("The test was changed succesfully");
+        }  
+        else alert("The test wasn`t changed");
+        }) 
+      alert(JSON.stringify(AnSwer));
 
-       const Answers = question.Answers.map((item =>   <Formik key = {item.Id} 
-        initialValues={{ AnswerText: `${item.AnswerText}`, isCorrect: item.IsCorrect, Id: `${item.Id}` }}
-        onSubmit={values => {
-            const AnSwer = {
-                AnswerText: values.AnswerText,
-                IsCorrect: values.IsCorrect
-            }
-          //await new Promise(resolve => setTimeout(resolve, 500));
-          console.log("Dd", values.Id);
-          console.log("FF", AnSwer);
-          axios({
-            method: 'put',
-            url: `https://edurangers.azurewebsites.net/api/Answer/?id=${values.Id}`,
-            data: AnSwer,
-            maxContentLength: Infinity,
-            maxBodyLength: Infinity,
-            headers: {'Content-Type': 'application/json'}
-        })
-            .then(res => {
-            console.log("RESPONSE CHANGE", res);
-            console.log(res.data);
-            if(res.data.Succedeed){
-                alert("The test was changed succesfully");
-            }  
-            else alert("The test wasn`t changed");
-            }) 
-          alert(JSON.stringify(AnSwer));
+    }
 
-        }}> 
+       const Answers = question.Answers.map((item =>   <Formik key = {item.Id} validateOnChange="false"
+        initialValues={{ AnswerText: `${item.AnswerText}`, isCorrect: item.IsCorrect, Id: `${item.Id}` }} 
+        onSubmit={values => Flex(values)
+            }> 
             <div>
         <Field
             type="checkbox" name="isCorrect" 
@@ -140,7 +142,7 @@ import React, {useState, useEffect}  from 'react';
             type="text" name="AnswerText" id={`${item.Id}txt`}
             placeholder={item.AnswerText}
         />
-        <Button block size="lg" type="submit">
+        <Button block size="lg" type="submit" onClick={Formik.handleSubmit}>
         Save
         </Button>
         <Button onClick={() => {axios.delete(`https://edurangers.azurewebsites.net/api/Answer/?id=${item.Id}`)
@@ -148,7 +150,6 @@ import React, {useState, useEffect}  from 'react';
         console.log(res);
         console.log(res.data);
       })}}>Delete</Button>
-        
         </div>
     </Formik>));
         console.log({Answers});
