@@ -22,6 +22,8 @@ export default function Profile(props){
           (result) => {
             console.log(result)
             setUser(result.data);
+            setAvatar(result.data.UserAvatar);
+            setName(result.data.Name)
             setIsLoading(false);
           }
         ).catch(error => {setError(error);
