@@ -27,7 +27,7 @@ export default function AddTest(props){
         .then(res => {
             console.log("RESPONSE ", res);
             console.log(res.data);
-            history.push(`/test/${props.match.params.id}/${props.match.params.email}`);
+            history.push(`/course/${props.match.params.id}/${props.match.params.email}`);
         })
     }
 
