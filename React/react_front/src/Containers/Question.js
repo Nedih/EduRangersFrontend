@@ -43,7 +43,7 @@ import React, {useState, useEffect}  from 'react';
                 headers: {'Content-Type': 'application/json'}
             })
                 .then(res => {
-                console.log("RESPONSE ", res);
+                console.log("RESPONSE TEST", res);
                 console.log(res.data);
                 if(res.data.Succedeed){
                     alert("The test was changed succesfully");
@@ -104,12 +104,14 @@ import React, {useState, useEffect}  from 'react';
 
        const Answers = question.Answers.map((item =>   <Formik key = {item.Id} 
         initialValues={{ AnswerText: `${item.AnswerText}`, isCorrect: item.IsCorrect, Id: `${item.Id}` }}
-        onSubmit={async values => {
+        onSubmit={values => {
             const AnSwer = {
                 AnswerText: values.AnswerText,
                 IsCorrect: values.IsCorrect
             }
-          await new Promise(resolve => setTimeout(resolve, 500));
+          //await new Promise(resolve => setTimeout(resolve, 500));
+          console.log("Dd", values.Id);
+          console.log("FF", AnSwer);
           axios({
             method: 'put',
             url: `https://edurangers.azurewebsites.net/api/Answer/?id=${values.Id}`,
@@ -119,7 +121,7 @@ import React, {useState, useEffect}  from 'react';
             headers: {'Content-Type': 'application/json'}
         })
             .then(res => {
-            console.log("RESPONSE ", res);
+            console.log("RESPONSE CHANGE", res);
             console.log(res.data);
             if(res.data.Succedeed){
                 alert("The test was changed succesfully");

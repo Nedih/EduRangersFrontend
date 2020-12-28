@@ -11,10 +11,8 @@ export default function AddAnswer(props){
 
     function handleCheck(event){
         event.preventDefault();
-        console.log(event.target);
-        console.log(event.target.value);
-        const target = event.target;
-        setRight(target.checked);
+        console.log("Flex", event.target.checked);
+        setRight(event.target.checked);
     }
 
     function Add(event){
@@ -47,7 +45,7 @@ export default function AddAnswer(props){
             Answer Text:</h1>
             <input type="text" name="Email" onChange={(e) => setName(e.target.value)} />
             <br />
-            <input type="checkbox" name="IsCorrect" onChange={(e) => setRight(e.checked)} />
+            <input type="checkbox" name="IsCorrect" onChange={(e) => setRight(e.target.checked)} />
           
           <Button type="submit">Add</Button>
         </form>
