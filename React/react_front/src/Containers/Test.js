@@ -93,6 +93,7 @@ export default function Test(props){
           .then(res => {
             console.log(res);
             console.log(res.data);
+            GetTest();
           })}}>
         <img src={del}/></Button></div></div>
         <p>{item.AnswersString}</p></div>));

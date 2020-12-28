@@ -113,6 +113,7 @@ export default function Course(props){
           .then(res => {
             console.log(res);
             console.log(res.data);
+            GetCourse();
           })}}>
         <img src={del}/></Button></div></div>
         <p>{item.TestDescription}</p>

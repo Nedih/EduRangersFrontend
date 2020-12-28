@@ -70,6 +70,7 @@ export default function Courses(props){
       .then(res => {
         console.log(res);
         console.log(res.data);
+        GetCourses();
         //history.push(`/courses/${props.match.params.email}`);
       })}}>
         <img src={del}/></Button></div></div>

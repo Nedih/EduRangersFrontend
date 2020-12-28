@@ -149,6 +149,7 @@ import React, {useState, useEffect}  from 'react';
       .then(res => {
         console.log(res);
         console.log(res.data);
+        GetQuestion();
       })}}>Delete</Button>
         </div>
     </Formik>));
