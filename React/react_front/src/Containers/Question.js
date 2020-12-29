@@ -3,7 +3,7 @@ import React, {useState, useEffect}  from 'react';
     import './Question.css';
     import Form from "react-bootstrap/Form";
     import Button from "react-bootstrap/Button";
-    import { Formik, Field} from "formik";
+    import { Formik, Form as Form2, Field } from "formik";
     import history from "../GlobalHistory/GlobalHistory"
 
     export default function Question(props){
@@ -12,6 +12,7 @@ import React, {useState, useEffect}  from 'react';
         const [name, setName] = useState(); 
         const [isLoading, setIsLoading] = useState(true);
         const [error, setError] = useState();
+        const [txt, setTxt] = useState("");
         //let Answers
 
         function GetQuestion() {
@@ -100,18 +101,21 @@ import React, {useState, useEffect}  from 'react';
             return(<p>Error</p>)
         }
         
-        function Flex(values)
-        {console.log(values)
-        const AnSwer = {
-            AnswerText: values.AnswerText,
-            IsCorrect: values.IsCorrect
-        }
+
+        function Flex(e)
+        {
+            console.log(e)
+           const AnSwer = {
+                AnswerText: e.AnswerText,
+                IsCorrect: e.IsCorrect,
+                QuestionId: question.Id
+            }   
       //await new Promise(resolve => setTimeout(resolve, 500));
-      console.log("Dd", values.Id);
+      //console.log("Dd", e.target.values.Id);
       console.log("FF", AnSwer);
       axios({
         method: 'put',
-        url: `https://edurangers.azurewebsites.net/api/Answer/?id=${values.Id}`,
+        url: `https://edurangers.azurewebsites.net/api/Answer/?id=${e.Id}`,
         data: AnSwer,
         maxContentLength: Infinity,
         maxBodyLength: Infinity,
@@ -126,23 +130,31 @@ import React, {useState, useEffect}  from 'react';
         else alert("The test wasn`t changed");
         }) 
       alert(JSON.stringify(AnSwer));
-
+      GetQuestion();
     }
+        
 
        const Answers = question.Answers.map((item =>   <Formik key = {item.Id} validateOnChange="false"
         initialValues={{ AnswerText: `${item.AnswerText}`, isCorrect: item.IsCorrect, Id: `${item.Id}` }} 
-        onSubmit={values => Flex(values)
+       onSubmit={(values, setSubmitting) => {
+            console.log(values);
+            alert(values);
+            Flex(values)
+            setSubmitting(false)}
             }> 
             <div>
         <Field
             type="checkbox" name="isCorrect" 
-            className="form-check-input"
+            className={`form-check-input`}
+            onClick = {(e) => {item.IsCorrect = e.target.checked}
+        }
         />
-        <Field
+        <Form.Control
             type="text" name="AnswerText" id={`${item.Id}txt`}
-            placeholder={item.AnswerText}
+            defaultValue={item.AnswerText} 
+            className={`form-control`} onChange={(e) => {item.AnswerText = e.target.value}}
         />
-        <Button block size="lg" type="submit" onClick={Formik.handleSubmit}>
+        <Button block size="lg" type="submit" onClick={() => {Flex(item)}}>
         Save
         </Button>
         <Button onClick={() => {axios.delete(`https://edurangers.azurewebsites.net/api/Answer/?id=${item.Id}`)
@@ -151,7 +163,7 @@ import React, {useState, useEffect}  from 'react';
         console.log(res.data);
         GetQuestion();
       })}}>Delete</Button>
-        </div>
+      </div>
     </Formik>));
         console.log({Answers});
 
